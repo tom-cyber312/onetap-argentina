@@ -174,7 +174,8 @@ section{position:relative;padding:84px 0}
 .benefit-tags span{font-size:.74rem;background:rgba(255,255,255,.05);border:1px solid var(--border);padding:5px 11px;border-radius:999px;color:var(--muted)}
 .benefit-photo{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  padding:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  grid-column:1/-1;
   transition:transform .25s ease,border-color .25s ease;
 }
 .benefit-photo:hover{transform:translateY(-4px);border-color:var(--accent)}
@@ -259,12 +260,7 @@ footer{border-top:1px solid var(--border);padding:36px 0}
 footer p{color:var(--muted);font-size:.82rem}
 
 /* ---------- Políticas y derechos ---------- */
-.legal{background:var(--bg-soft);border-top:1px solid var(--border);padding:56px 0 64px}
-.legal h3{font-size:1.3rem;font-weight:800;margin-bottom:24px;text-align:center}
-.legal-grid{display:grid;grid-template-columns:1fr;gap:16px}
-.legal-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
-.legal-card h4{font-size:.92rem;font-weight:700;margin-bottom:8px;color:var(--accent)}
-.legal-card p{color:var(--muted);font-size:.88rem}
+.legal{background:var(--bg-soft);border-top:1px solid var(--border);padding:84px 0}
 
 /* ---------- Floating WhatsApp ---------- */
 .wa-float{
@@ -300,11 +296,8 @@ footer p{color:var(--muted);font-size:.82rem}
   .prod-grid{grid-template-columns:repeat(3,1fr)}
   .product-grid{grid-template-columns:1.1fr 1fr}
   .footer-inner{flex-direction:row;justify-content:space-between;text-align:left}
-  .legal-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (min-width:960px){
-  .legal-grid{grid-template-columns:repeat(4,1fr)}
-}
 @media (max-width:640px){
   .nav{margin:0 4px}
   .nav a{padding:6px 8px;font-size:.82rem}
@@ -615,24 +608,25 @@ footer p{color:var(--muted);font-size:.82rem}
 
 <!-- POLITICAS Y DERECHOS -->
 <section class="legal" id="politicas">
-  <div class="container">
-    <h3>Políticas y derechos</h3>
-    <div class="legal-grid">
-      <div class="legal-card">
-        <h4>Política de privacidad</h4>
-        <p>Los datos que compartas con OneTap Argentina se utilizan únicamente para responder tu consulta, gestionar tu pedido y mejorar nuestro servicio. Nunca se venden ni se comparten con terceros.</p>
+  <div class="container center">
+    <span class="section-tag reveal">Legal</span>
+    <h2 class="section-title reveal" data-delay="1">Políticas y <span>derechos</span></h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Política de privacidad<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Los datos que compartas con OneTap Argentina se utilizan únicamente para responder tu consulta, gestionar tu pedido y mejorar nuestro servicio. Nunca se venden ni se comparten con terceros.</div></div>
       </div>
-      <div class="legal-card">
-        <h4>Términos y condiciones</h4>
-        <p>Las condiciones de compra, envío y reprogramación de tarjetas se detallan en el momento de la venta por WhatsApp. El precio final se confirma antes de realizar el pedido.</p>
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Términos y condiciones<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Las condiciones de compra, envío y reprogramación de tarjetas se detallan en el momento de la venta por WhatsApp. El precio final se confirma antes de realizar el pedido.</div></div>
       </div>
-      <div class="legal-card">
-        <h4>Envíos y garantía</h4>
-        <p>Ofrecemos envío a todo el país y garantía sobre el funcionamiento de la tarjeta. Ante cualquier inconveniente, escribinos y lo resolvemos a la brevedad.</p>
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Envíos y garantía<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Ofrecemos envío a todo el país y garantía sobre el funcionamiento de la tarjeta. Ante cualquier inconveniente, escribinos y lo resolvemos a la brevedad.</div></div>
       </div>
-      <div class="legal-card">
-        <h4>Derechos del consumidor</h4>
-        <p>Este sitio no reemplaza los derechos que te reconoce la Ley N.° 24.240 de Defensa del Consumidor de la República Argentina.</p>
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button">Derechos del consumidor<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Este sitio no reemplaza los derechos que te reconoce la Ley N.° 24.240 de Defensa del Consumidor de la República Argentina.</div></div>
       </div>
     </div>
   </div>
