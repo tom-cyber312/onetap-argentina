@@ -186,29 +186,27 @@ section{position:relative;padding:84px 0}
 .specs li strong{color:var(--text);display:block;font-size:.9rem}
 .specs .spec-dot{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(34,229,132,.12);border:1px solid rgba(34,229,132,.3);display:grid;place-items:center;margin-top:2px}
 
-/* ---------- Pricing ---------- */
-.pricing{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.price-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:48px}
-.price-card{
+/* ---------- Products ---------- */
+.products{background:var(--bg-soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.prod-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:48px}
+.prod-card{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:30px 26px;display:flex;flex-direction:column;position:relative;
+  padding:16px;display:flex;flex-direction:column;
   transition:transform .25s ease,border-color .25s ease;
 }
-.price-card:hover{transform:translateY(-4px);border-color:var(--accent)}
-.price-card.featured{border-color:var(--accent);background:linear-gradient(180deg,rgba(34,229,132,.08),var(--surface))}
-.price-card.featured::before{
-  content:"MÁS VENDIDO";position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-  background:var(--accent);color:#062b18;font-size:.7rem;font-weight:800;letter-spacing:.1em;
-  padding:5px 14px;border-radius:999px;
+.prod-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.prod-photo{
+  aspect-ratio:1.15;border-radius:12px;margin-bottom:16px;
+  border:1px dashed var(--border);display:grid;place-items:center;
+  background:repeating-linear-gradient(45deg,var(--surface-2),var(--surface-2) 12px,transparent 12px,transparent 24px);
 }
-.price-name{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.price-amount{font-size:2.4rem;font-weight:800;letter-spacing:-.03em;margin:14px 0 6px}
-.price-amount small{font-size:1rem;color:var(--muted);font-weight:500}
-.price-desc{color:var(--muted);font-size:.94rem;margin-bottom:20px}
-.price-features{list-style:none;display:grid;gap:10px;margin-bottom:26px;font-size:.95rem}
-.price-features li{display:flex;gap:10px;align-items:flex-start}
-.price-features li::before{content:"✓";color:var(--accent);font-weight:700;flex:none}
-.price-card .btn{margin-top:auto;width:100%}
+.prod-photo .ph{color:var(--muted);font-size:.85rem}
+.prod-body{padding:0 6px 6px;display:flex;flex-direction:column;flex:1}
+.prod-name{font-size:1.12rem;font-weight:700;margin-bottom:6px}
+.prod-desc{color:var(--muted);font-size:.93rem;margin-bottom:14px}
+.prod-price{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+.prod-price small{font-size:.88rem;color:var(--muted);font-weight:500}
+.prod-card .btn{margin-top:auto;width:100%}
 .price-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:28px}
 .price-note a{color:var(--accent);font-weight:600}
 
@@ -282,7 +280,7 @@ footer p{color:var(--muted);font-size:.82rem}
 @media (min-width:640px){
   .steps{grid-template-columns:repeat(3,1fr)}
   .benefit-grid{grid-template-columns:repeat(2,1fr)}
-  .price-grid{grid-template-columns:repeat(3,1fr)}
+  .prod-grid{grid-template-columns:repeat(3,1fr)}
   .product-grid{grid-template-columns:1.1fr 1fr}
   .footer-inner{flex-direction:row;justify-content:space-between;text-align:left}
 }
@@ -485,52 +483,42 @@ footer p{color:var(--muted);font-size:.82rem}
   </div>
 </section>
 
-<!-- PRECIOS -->
-<section class="pricing" id="precios">
+<!-- PRODUCTOS -->
+<section class="products" id="productos">
   <div class="container center">
-    <span class="section-tag reveal">Precios</span>
-    <h2 class="section-title reveal" data-delay="1">Planes simples, <span>sin vueltas</span></h2>
-    <p class="section-sub reveal" data-delay="1">Editá los valores debajo cuando definas tus precios finales.</p>
-    <div class="price-grid">
-      <div class="price-card reveal">
-        <span class="price-name">Start</span>
-        <div class="price-amount">$ ____ <small>/ unidad</small></div>
-        <p class="price-desc">Para probar y arrancar a sumar reseñas.</p>
-        <ul class="price-features">
-          <li>1 tarjeta NFC</li>
-          <li>Programación con tu link de reseñas</li>
-          <li>Diseño personalizado con tu logo</li>
-          <li>Envío a todo el país</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola!%20Quiero%20el%20plan%20Start%20de%20OneTap" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    <span class="section-tag reveal">Productos</span>
+    <h2 class="section-title reveal" data-delay="1">Nuestros <span>productos</span></h2>
+    <p class="section-sub reveal" data-delay="1">Acá vas a poder ver todos los productos de OneTap. Consultanos por WhatsApp el precio final y disponibilidad.</p>
+    <div class="prod-grid">
+      <div class="prod-card reveal">
+        <div class="prod-photo"><span class="ph">Foto del producto</span></div>
+        <div class="prod-body">
+          <h3 class="prod-name">Nombre del producto</h3>
+          <p class="prod-desc">Descripción breve del producto.</p>
+          <div class="prod-price">$ ____ <small>/ unidad</small></div>
+          <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20informacion%20sobre%20tus%20productos" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
       </div>
-      <div class="price-card featured reveal" data-delay="1">
-        <span class="price-name">Pack Negocio</span>
-        <div class="price-amount">$ ____ <small>/ pack</small></div>
-        <p class="price-desc">El más elegido. Ideal para mostrador y caja.</p>
-        <ul class="price-features">
-          <li>5 tarjetas NFC</li>
-          <li>Programación de cada tarjeta</li>
-          <li>Diseño premium con tu marca</li>
-          <li>Base de mostrador incluida</li>
-          <li>Envío a todo el país</li>
-        </ul>
-        <a class="btn btn-wa" href="https://wa.me/5493496460163?text=Hola!%20Quiero%20el%20Pack%20Negocio%20de%20OneTap" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      <div class="prod-card reveal" data-delay="1">
+        <div class="prod-photo"><span class="ph">Foto del producto</span></div>
+        <div class="prod-body">
+          <h3 class="prod-name">Nombre del producto</h3>
+          <p class="prod-desc">Descripción breve del producto.</p>
+          <div class="prod-price">$ ____ <small>/ unidad</small></div>
+          <a class="btn btn-wa" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20informacion%20sobre%20tus%20productos" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
       </div>
-      <div class="price-card reveal" data-delay="2">
-        <span class="price-name">Multi-sucursal</span>
-        <div class="price-amount">$ ____ <small>/ pack</small></div>
-        <p class="price-desc">Para cadenas, franquicias y locales grandes.</p>
-        <ul class="price-features">
-          <li>10+ tarjetas NFC</li>
-          <li>Diseño para varias sucursales</li>
-          <li>Coordinación de cada punto</li>
-          <li>Precio por mayor</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola!%20Quiero%20el%20plan%20Multi-sucursal%20de%20OneTap" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      <div class="prod-card reveal" data-delay="2">
+        <div class="prod-photo"><span class="ph">Foto del producto</span></div>
+        <div class="prod-body">
+          <h3 class="prod-name">Nombre del producto</h3>
+          <p class="prod-desc">Descripción breve del producto.</p>
+          <div class="prod-price">$ ____ <small>/ unidad</small></div>
+          <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20informacion%20sobre%20tus%20productos" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
       </div>
     </div>
-    <p class="price-note reveal">¿Dudas sobre cuál elegir? <a href="https://wa.me/5493496460163" target="_blank" rel="noopener">Escríbenos y te asesoramos gratis</a></p>
+    <p class="price-note reveal">¿No encontrás lo que buscás? <a href="https://wa.me/5493496460163" target="_blank" rel="noopener">Escribinos y te contamos todo</a></p>
   </div>
 </section>
 
@@ -605,7 +593,7 @@ footer p{color:var(--muted);font-size:.82rem}
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#beneficios">Beneficios</a>
       <a href="#producto">Producto</a>
-      <a href="#precios">Precios</a>
+      <a href="#productos">Productos</a>
       <a href="#faq">FAQ</a>
     </div>
     <p>© <span id="year"></span> OneTap Argentina · Todos los derechos reservados</p>
