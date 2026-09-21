@@ -173,6 +173,13 @@ section{position:relative;padding:84px 0}
 .benefit p{color:var(--muted);font-size:.93rem}
 .benefit-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .benefit-tags span{font-size:.74rem;background:rgba(255,255,255,.05);border:1px solid var(--border);padding:5px 11px;border-radius:999px;color:var(--muted)}
+.benefit-photo{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.benefit-photo:hover{transform:translateY(-4px);border-color:var(--accent)}
+.benefit-photo img{width:100%;height:100%;object-fit:cover;border-radius:12px}
 
 /* ---------- Product ---------- */
 .product-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;margin-top:20px}
@@ -454,6 +461,12 @@ footer p{color:var(--muted);font-size:.82rem}
         </div>
         <h3>Resultados medibles</h3>
         <p>Cuando la cantidad de reseñas crece, tu negocio aparece mejor en el mapa y más clientes te encuentran.</p>
+      </div>
+      <div class="benefit-photo reveal">
+        <img src="img/beneficio1.jpg" alt="Tarjeta NFC OneTap en un negocio" loading="lazy">
+      </div>
+      <div class="benefit-photo reveal" data-delay="1">
+        <img src="img/beneficio2.jpg" alt="Tarjeta OneTap dejando reseñas de Google" loading="lazy">
       </div>
     </div>
   </div>
