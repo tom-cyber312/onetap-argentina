@@ -206,17 +206,28 @@ section{position:relative;padding:84px 0}
 }
 .prod-card:hover{transform:translateY(-4px);border-color:var(--accent)}
 .prod-photo{
-  aspect-ratio:1.15;border-radius:12px;margin-bottom:16px;
-  border:1px dashed var(--border);display:grid;place-items:center;
-  background:repeating-linear-gradient(45deg,var(--surface-2),var(--surface-2) 12px,transparent 12px,transparent 24px);
+  aspect-ratio:3/4;border-radius:12px;margin-bottom:16px;
+  border:1px solid var(--border);overflow:hidden;display:grid;place-items:center;
+  background:var(--surface-2);
 }
+.prod-photo img{width:100%;height:100%;object-fit:cover}
 .prod-photo .ph{color:var(--muted);font-size:.85rem}
 .prod-body{padding:0 6px 6px;display:flex;flex-direction:column;flex:1}
 .prod-name{font-size:1.12rem;font-weight:700;margin-bottom:6px}
 .prod-desc{color:var(--muted);font-size:.93rem;margin-bottom:14px}
-.prod-price{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
-.prod-price small{font-size:.88rem;color:var(--muted);font-weight:500}
+.prod-price{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:16px;line-height:1.2}
+.prod-price small{display:block;font-size:.82rem;color:var(--muted);font-weight:500;margin-top:2px}
 .prod-card .btn{margin-top:auto;width:100%}
+.unit-select{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.unit-btn{
+  flex:1 1 42px;padding:8px 6px;border-radius:10px;cursor:pointer;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  color:var(--muted);font-weight:700;font-size:.85rem;
+  transition:color .2s ease,border-color .2s ease,background .2s ease;
+}
+.unit-btn:hover{border-color:var(--accent);color:var(--text)}
+.unit-btn.selected{background:rgba(56,189,248,.15);border-color:var(--accent);color:var(--accent)}
+.price-orig{color:var(--muted);text-decoration:line-through;font-size:1.02rem;font-weight:600;margin-right:8px}
 .price-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:28px}
 .price-note a{color:var(--accent);font-weight:600}
 
@@ -515,30 +526,70 @@ footer p{color:var(--muted);font-size:.82rem}
     <p class="section-sub reveal" data-delay="1">Acá vas a poder ver todos los productos de OneTap. Consultanos por WhatsApp el precio final y disponibilidad.</p>
     <div class="prod-grid">
       <div class="prod-card reveal">
-        <div class="prod-photo"><span class="ph">Foto del producto</span></div>
+        <div class="prod-photo"><img src="img/tarjeta-blanca.jpg" alt="Tarjeta NFC blanca configurada" loading="lazy"></div>
         <div class="prod-body">
-          <h3 class="prod-name">Nombre del producto</h3>
-          <p class="prod-desc">Descripción breve del producto.</p>
-          <div class="prod-price">$ ____ <small>/ unidad</small></div>
-          <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20informacion%20sobre%20tus%20productos" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          <h3 class="prod-name">Tarjeta NFC blanca</h3>
+          <p class="prod-desc">Tarjeta configurada con el link de tus reseñas de Google. Lista para usar, con diseño premium.</p>
+          <div class="prod-price">$30.000 <small>/ unidad</small></div>
+          <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20la%20Tarjeta%20NFC%20blanca%20(%2430.000)" target="_blank" rel="noopener">Consultar por WhatsApp</a>
         </div>
       </div>
       <div class="prod-card reveal" data-delay="1">
-        <div class="prod-photo"><span class="ph">Foto del producto</span></div>
+        <div class="prod-photo"><img src="img/tarjeta-negra.jpg" alt="Tarjeta NFC negra configurada" loading="lazy"></div>
         <div class="prod-body">
-          <h3 class="prod-name">Nombre del producto</h3>
-          <p class="prod-desc">Descripción breve del producto.</p>
-          <div class="prod-price">$ ____ <small>/ unidad</small></div>
-          <a class="btn btn-wa" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20informacion%20sobre%20tus%20productos" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          <h3 class="prod-name">Tarjeta NFC negra</h3>
+          <p class="prod-desc">Tarjeta configurada con el link de tus reseñas de Google. Lista para usar, con diseño premium.</p>
+          <div class="prod-price">$30.000 <small>/ unidad</small></div>
+          <a class="btn btn-wa" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20la%20Tarjeta%20NFC%20negra%20(%2430.000)" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+      <div class="prod-card prod-card--pack reveal" data-product="Pack revendedor">
+        <div class="prod-photo"><img src="img/pack-rev1.jpg" alt="Pack revendedor OneTap" loading="lazy"></div>
+        <div class="prod-body">
+          <h3 class="prod-name">Pack revendedor</h3>
+          <p class="prod-desc">Ideales para revender. Elegí la cantidad de tarjetas y pagá mejor precio por unidad.</p>
+          <div class="unit-select">
+            <button class="unit-btn" type="button" data-units="10" data-price="$75.000">10</button>
+            <button class="unit-btn" type="button" data-units="20" data-price="$135.000" data-orig="$150.000">20</button>
+            <button class="unit-btn" type="button" data-units="50" data-price="$300.000" data-orig="$375.000">50</button>
+            <button class="unit-btn" type="button" data-units="75" data-price="$412.500" data-orig="$562.500">75</button>
+            <button class="unit-btn" type="button" data-units="100" data-price="$500.000" data-orig="$750.000">100</button>
+          </div>
+          <div class="prod-price pack-price">
+            <span class="price-orig" style="display:none"></span>
+            <span class="price-cur">$75.000</span>
+            <small class="price-units">10 unidades</small>
+          </div>
+          <a class="btn btn-wa" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20el%20Pack%20revendedor%20(10%20unidades)%20por%20%2475.000" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+      <div class="prod-card prod-card--pack reveal" data-product="Pack revendedor">
+        <div class="prod-photo"><img src="img/pack-rev2.jpg" alt="Pack revendedor OneTap" loading="lazy"></div>
+        <div class="prod-body">
+          <h3 class="prod-name">Pack revendedor</h3>
+          <p class="prod-desc">Ideales para revender. Elegí la cantidad de tarjetas y pagá mejor precio por unidad.</p>
+          <div class="unit-select">
+            <button class="unit-btn" type="button" data-units="10" data-price="$75.000">10</button>
+            <button class="unit-btn" type="button" data-units="20" data-price="$135.000" data-orig="$150.000">20</button>
+            <button class="unit-btn" type="button" data-units="50" data-price="$300.000" data-orig="$375.000">50</button>
+            <button class="unit-btn" type="button" data-units="75" data-price="$412.500" data-orig="$562.500">75</button>
+            <button class="unit-btn" type="button" data-units="100" data-price="$500.000" data-orig="$750.000">100</button>
+          </div>
+          <div class="prod-price pack-price">
+            <span class="price-orig" style="display:none"></span>
+            <span class="price-cur">$75.000</span>
+            <small class="price-units">10 unidades</small>
+          </div>
+          <a class="btn btn-wa" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20el%20Pack%20revendedor%20(10%20unidades)%20por%20%2475.000" target="_blank" rel="noopener">Consultar por WhatsApp</a>
         </div>
       </div>
       <div class="prod-card reveal" data-delay="2">
-        <div class="prod-photo"><span class="ph">Foto del producto</span></div>
+        <div class="prod-photo"><img src="img/guia.jpg" alt="Guía de aprendizaje OneTap" loading="lazy"></div>
         <div class="prod-body">
-          <h3 class="prod-name">Nombre del producto</h3>
-          <p class="prod-desc">Descripción breve del producto.</p>
-          <div class="prod-price">$ ____ <small>/ unidad</small></div>
-          <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20informacion%20sobre%20tus%20productos" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          <h3 class="prod-name">Guía de aprendizaje</h3>
+          <p class="prod-desc">Aprendé todo sobre OneTap y las tarjetas NFC: cómo usarlas, venderlas y sacarles el máximo provecho.</p>
+          <div class="prod-price">$15.000 <small>/ guía</small></div>
+          <a class="btn btn-ghost" href="https://wa.me/5493496460163?text=Hola%20OneTap!%20Quiero%20la%20Guia%20de%20aprendizaje%20(%2415.000)" target="_blank" rel="noopener">Consultar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -657,6 +708,34 @@ footer p{color:var(--muted);font-size:.82rem}
 // Año en footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Selector de unidades en Pack revendedor
+document.querySelectorAll(".prod-card--pack").forEach(function(card){
+  var btnEls = card.querySelectorAll(".unit-btn");
+  var curEl = card.querySelector(".price-cur");
+  var origEl = card.querySelector(".price-orig");
+  var unitsEl = card.querySelector(".price-units");
+  var btnWa = card.querySelector(".btn");
+  var product = card.dataset.product;
+  function update(btn){
+    btnEls.forEach(function(b){ b.classList.remove("selected"); });
+    btn.classList.add("selected");
+    curEl.textContent = btn.dataset.price;
+    unitsEl.textContent = btn.dataset.units + " unidades";
+    if(btn.dataset.orig){
+      origEl.textContent = btn.dataset.orig;
+      origEl.style.display = "inline";
+    } else {
+      origEl.style.display = "none";
+    }
+    btnWa.href = "https://wa.me/5493496460163?text=" +
+      encodeURIComponent("Hola OneTap! Quiero el " + product + " (" + btn.dataset.units + " unidades) por " + btn.dataset.price);
+  }
+  btnEls.forEach(function(btn){
+    btn.addEventListener("click", function(){ update(btn); });
+  });
+  update(btnEls[0]);
+});
+
 // Animaciones al hacer scroll
 (function(){
   var els = document.querySelectorAll(".reveal");
@@ -698,6 +777,9 @@ document.querySelector(".legal-toggle").addEventListener("click", function(){
   var open = box.classList.toggle("open");
   this.setAttribute("aria-expanded", open ? "true" : "false");
 });
+
+// Selector de unidades en Pack revendedor
+// Año en footer
 </script>
 </body>
 </html>
